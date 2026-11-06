@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Yas!</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma, sans-serif;
+    background: linear-gradient(135deg, #19104d, #642b83, #d34c9c);
+    color: white;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* صفحه شروع */
+
+.welcome {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.welcome h1 {
+    font-size: 38px;
+    direction: ltr;
+    margin-bottom: 25px;
+    color: #ffd6f1;
+    text-shadow: 0 0 20px #ff8bd5;
+}
+
+.welcome p {
+    font-size: 17px;
+    line-height: 2.2;
+    max-width: 600px;
+    margin-bottom: 35px;
+}
+
+button {
+    background: #ff9bd7;
+    color: #40144f;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    background: #ffd1ed;
+}
+
+/* آلبوم عکس ها */
+
+#album {
+    display: none;
+    padding: 40px 15px;
+}
+
+#album h2 {
+    font-size: 26px;
+    color: #ffe0f3;
+    margin-bottom: 15px;
+}
+
+.intro {
+    font-size: 15px;
+    line-height: 2;
+    margin-bottom: 35px;
+}
+
+#photoGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: auto;
+    padding: 10px;
+}
+
+/* قاب پولارویدی */
+
+.polaroid {
+    background: #fffafc;
+    padding: 12px 12px 15px;
+    border-radius: 5px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    transform: rotate(-1deg);
+    transition: 0.3s;
+}
+
+.polaroid:nth-child(even) {
+    transform: rotate(1.5deg);
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.04);
+}
+
+.polaroid img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+    border-radius: 3px;
+}
+
+.caption {
+    text-align: center;
+    font-size: 14px;
+    color: #444;
+    padding: 12px 5px 5px;
+    line-height: 1.8;
+    direction: rtl;
+}
+
+/* نامه پایانی */
+
+.letter {
+    background: linear-gradient(135deg, #ffe0f2, #f7c5e8);
+    color: #54234f;
+    max-width: 700px;
+    margin: 60px auto 20px;
+    padding: 35px 25px;
+    border-radius: 15px;
+    line-height: 2.5;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    text-align: right;
+}
+
+.letter h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #9c367f;
+}
+
+.footer {
+    padding: 30px 10px;
+    color: #ffd6f1;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    .welcome h1 {
+        font-size: 29px;
+    }
+
+    #album h2 {
+        font-size: 21px;
+    }
+
+    #photoGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    .polaroid {
+        padding: 8px 8px 12px;
+    }
+
+    .polaroid img {
+        height: 160px;
+    }
+
+    .caption {
+        font-size: 12px;
+    }
+
+    .letter {
+        margin: 40px 10px 20px;
+        padding: 25px 18px;
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- صفحه شروع -->
+
+<section class="welcome" id="welcome">
+
+    <h1>HAPPY BIRTHDAY YAS!</h1>
+
+    <p>
+        برای تنها کسی که می‌شد باهاش هر ایده‌ی جاج‌برانگیزی رو عملی کنم
+        و کنارش خودِ واقعی‌م باشم.
+    </p>
+
+    <button onclick="openAlbum()">OPEN YOUR GIFT</button>
+
+</section>
+
+<!-- آلبوم عکس ها -->
+
+<section id="album">
+
+    <h2>خاطره هایی که فقط ترکیب ما دو تا میتونست بسازتشون</h2>
+
+    <p class="intro">
+            </p>
+
+    <div id="photoGrid"></div>
+
+    <!-- نامه پایانی -->
+
+    <div class="letter">
+
+        <h2>Dear Yas 💗</h2>
+
+        <p>
+            یاس،
+            <br>
+            تولدت خیلی مبارک باشه💖
+            <br>
+            واقعاً مرسی بابت اینکه باعث شدی این خاطرات خوب رو باهم بسازیم.
+            <br>
+            فقط کنار تو می‌شد انقدر خود واقعیم باشم و انقدر خاطرات خوب و «جالب» بسازیم.
+            <br>
+            مرسی که همیشه گذاشتی در مورد یه موضوع تکراری هزار بار حرف بزنم.
+            <br>
+            امیدوارم دهه ۲۰ سالگیت عالی باشه و پر خاطرات خفن (کنار خودم) باشه
+            و به همه چیزای خوبی که می‌خوای برسی.
+            <br>
+            دوستت دارررم💖
+        </p>
+
+    </div>
+
+    <div class="footer">
+        Made with nazanin ♡
+    </div>
+
+</section>
+
+<script>
+
+const photoGrid = document.getElementById("photoGrid");
+
+const captions = [
+    "گند زدنامون تو مدرسه🤌🏻",
+    "زنگای ناهار🍔",
+    "مهمونیا🙏🏻",
+    "تجریش و پر خوری🐒",
+    "رندوم تصمیم گرفتیم موهامو کوتاه کنیم💇🏻‍♀️",
+    "روز قبل جنگ 🐗",
+    "خونتون+نقاشی+بی خیالیمون>>>>>✨",
+    "پلن ادایی سانا=»پارک قیطریه با گربه و کلاغ🐈",
+    "پارت دو تجریش و پرخوری🤌🏻",
+    "هیچ احمقی نمیتونه باعث خراب شدن رابطمون بشه👑",
+    "با هم مدرک احیا گرفتیم🙏🏻",
+    "کرررررررج🧚🏻",
+    "پلن مترو هامونم که عالیه👩🏻‍🐰‍👩🏼",
+    "خوشمزه ترین بود🙇🏻‍♀️",
+    "مهمونی پارت دو⭐️",
+    "تولدت که واقعا خوش گذشت🎂"
+];
+
+for (let i = 1; i <= 16; i++) {
+
+    const card = document.createElement("div");
+    card.className = "polaroid";
+
+    const img = document.createElement("img");
+
+    const extensions = ["jpg", "jpeg", "png"];
+    let extensionIndex = 0;
+
+    img.src = "images/" + i + "." + extensions[extensionIndex];
+
+    img.onerror = function() {
+
+        extensionIndex++;
+
+        if (extensionIndex < extensions.length) {
+            img.src = "images/" + i + "." + extensions[extensionIndex];
+        } else {
+            img.style.display = "none";
+        }
+
+    };
+
+    const caption = document.createElement("p");
+    caption.className = "caption";
+    caption.textContent = captions[i - 1];
+
+    card.appendChild(img);
+    card.appendChild(caption);
+
+    photoGrid.appendChild(card);
+
+}
+
+function openAlbum() {
+
+    document.getElementById("welcome").style.display = "none";
+
+    document.getElementById("album").style.display = "block";
+
+    window.scrollTo(0, 0);
+
+}
+
+</script>
+
+</body>
+</html>
